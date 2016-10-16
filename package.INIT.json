@@ -1,0 +1,23 @@
+{
+  "name": "NPM",
+  "version": "1.0.0",
+  "description": "A demo site for our npm scripting adventures.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "start": "node index.js",
+    "stop": "echo \"Error: no stop specified\"",
+    "restart": "echo \"Error: no restart specified\"",
+    "start:dev": "node index.js 4000"
+  },
+  "keywords": [
+    "npm",
+    "scripting"
+  ],
+  "author": "Goh Tay Wak",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "koa": "^1.2.4"
+  }
+}

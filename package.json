@@ -1,0 +1,58 @@
+{
+  "name": "NPM",
+  "version": "1.0.0",
+  "description": "A demo site for our npm scripting adventures.",
+  "main": "index.js",
+  "scripts": {
+  	"start": "node index.js",
+  	"start:dev": "node index.js 4000",
+
+    "test": "echo 'Running test'",
+    "pretest": "echo 'Before running test'",
+    "posttest": "echo 'After running test'",
+    
+    "greet": "echo 'Running greet'",
+    "pregreet": "echo 'Before running greet'",
+    "postgreet": "echo 'After running greet'",
+    
+    "lint": "jshint index.js",
+
+    "compile:coffee": "coffee --compile --output ./lib ./scr/coffeescripts",
+    "compile:textscript": "tsc --outDir ./lib --module commonjs ./src/typescripts/tsCoc",
+    "compile": "npm run compile:coffee && npm run compile:textscript",
+
+    "precompile": "npm run clean",
+
+    "clean": "rimraf lib/*",
+
+    "build:less": "lessc client/less/demo.less public/css/site.css",
+    "build:bundle": "browserify ./client/js/app.js -o ./public/js/bundle.js",
+    "build:uglify": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
+    "build:clean": "rimras public/css/*, public/js/*",
+    "prebuild": "npm run build:clean",
+    "build": "npm run build:less && npm run build:uglify",
+
+    "watch:test": "mocha test -u bdd -R min --watch",
+    "watch:testmin": "mocha test -- -w -R min"
+  },
+  "jshintConfig": {
+    "esversion": 6,
+    "noyield": "true"
+  },
+  "keywords": [
+    "npm",
+    "scripting"
+  ],
+  "author": "Goh Tay Wak",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "koa": "^1.2.4"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.3",
+    "mocha": "^3.1.2",
+    "should": "^11.1.1",
+    "supertest": "^2.0.0"
+  }
+}
